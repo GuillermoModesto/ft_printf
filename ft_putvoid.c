@@ -6,14 +6,14 @@
 /*   By: guantino <guantino@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 12:43:12 by guantino          #+#    #+#             */
-/*   Updated: 2025/11/13 14:05:23 by guantino         ###   ########.fr       */
+/*   Updated: 2025/11/13 19:09:43 by guantino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
 int	ft_putvoid(void *ptr)
 {
-	unsigned int	uptr;
+	unsigned long	uptr;
 	int				len;
 
 	if (!ptr)
