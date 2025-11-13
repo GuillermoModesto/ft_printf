@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexnbr.c                                     :+:      :+:    :+:   */
+/*   ft_putunbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guantino <guantino@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/12 17:46:46 by guantino          #+#    #+#             */
-/*   Updated: 2025/11/12 17:51:43 by guantino         ###   ########.fr       */
+/*   Created: 2025/11/13 12:20:44 by guantino          #+#    #+#             */
+/*   Updated: 2025/11/13 12:20:47 by guantino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int	ft_puthexnbr(unsigned int num, int cap)
+int	ft_putunbr(unsigned int num)
 {
 	size_t	len;
-	char	*base;
 
 	len = 0;
-	if (cap)
-		base = "0123456789ABCDEF";
-	else
-		base = "0123456789abcdef";
-	if (num >= 16)
-		len += ft_puthexnbr(num / 16, cap);
-	len += ft_putchar(base[num % 16]);
+	if (num == 0)
+		return (ft_putchar('0'));
+	if (num >= 10)
+		len += ft_putnbr(num / 10);
+	len += ft_putchar((num % 10) + '0');
 	return (len);
 }

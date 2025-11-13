@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexnbr.c                                     :+:      :+:    :+:   */
+/*   ft_putvoid.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guantino <guantino@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/12 17:46:46 by guantino          #+#    #+#             */
-/*   Updated: 2025/11/12 17:51:43 by guantino         ###   ########.fr       */
+/*   Created: 2025/11/13 12:43:12 by guantino          #+#    #+#             */
+/*   Updated: 2025/11/13 14:05:23 by guantino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	ft_puthexnbr(unsigned int num, int cap)
+int	ft_putvoid(void *ptr)
 {
-	size_t	len;
-	char	*base;
+	unsigned int	uptr;
+	int				len;
 
+	if (!ptr)
+		return (ft_putstr("(nil)"));
 	len = 0;
-	if (cap)
-		base = "0123456789ABCDEF";
-	else
-		base = "0123456789abcdef";
-	if (num >= 16)
-		len += ft_puthexnbr(num / 16, cap);
-	len += ft_putchar(base[num % 16]);
+	uptr = (unsigned long)ptr;
+	len += ft_putstr("0x");
+	len += ft_puthexnbr(uptr, 0);
 	return (len);
 }

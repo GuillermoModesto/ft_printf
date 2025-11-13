@@ -17,5 +17,9 @@
 int	ft_printf(const char *str, ...);
 int	ft_putchar(char c);
 int	ft_putstr(char *s);
+int	ft_puthexnbr(unsigned int num, int cap);
+int	ft_putnbr(int num);
+int	ft_putunbr(unsigned int num);
+int	ft_putvoid(void *ptr);
 
 #endif
